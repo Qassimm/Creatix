@@ -1,6 +1,6 @@
 import React from 'react'
-import Pic1  from "../assets/images/pic1.png";
-import Pic2  from "../assets/images/pic2.png";
+import Pic1  from "../assets/images/Pic1.png";
+import Pic2  from "../assets/images/Pic2.png";
 
 const Sec1:React.FC = () => {
   return (
