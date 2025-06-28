@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaStarOfLife } from 'react-icons/fa'
+
 
 
 const Sec3:React.FC = () => {

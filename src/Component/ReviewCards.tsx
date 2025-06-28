@@ -1,12 +1,5 @@
 import React from 'react'
 import Pic3 from '../assets/images/Pic3.jpg';
-import Pic4 from '../assets/images/Pic4.jpg';
-import Pic5 from '../assets/images/Pic5.jpg';
-import Pic6 from '../assets/images/Pic6.jpg';
-import Pic7 from '../assets/images/Pic7.png';
-import Pic8 from '../assets/images/Pic8.png';
-import { useRef } from 'react';
-import { useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaQuoteRight } from 'react-icons/fa';
 
 

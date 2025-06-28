@@ -24,7 +24,7 @@ const Hero:React.FC = () => {
           {/* right text , rating */}
           <div className='flex flex-col justify-end text-end'>
             <div className='flex'>
-            {Array(5).fill(0).map((star, index)=>(
+            {Array(5).fill(0).map((_, index)=>(
     <span key={index}>< FaStar className='text-lime-400 text-4xl'/></span>))}
             </div>
             <h1 className='text-5xl font-semibold'>10 Years</h1>
