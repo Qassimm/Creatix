@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 const Sec3:React.FC = () => {
   return (
     <div className="bg-black   h-fit p-10  text-white flex justify-center items-center">
