@@ -1,5 +1,5 @@
 import './App.css'
-import Contact from './Component/Contact'
+import Footer from './Component/Footer'
 import Hero from './Component/Hero'
 import Navbar from './Component/Navbar'
 import ReviewCards from './Component/ReviewCards'
@@ -22,7 +22,7 @@ function App() {
     <Sec3/>
     <Sec4/>
     <ReviewCards/>
-    <Contact/>
+    <Footer/>
      </div>
   )
 }
