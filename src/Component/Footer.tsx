@@ -80,7 +80,7 @@ const Footer:React.FC =() => {
       </div>
     </div>
     <div className='flex justify-between text-black items-center   '>
-      <p>© CoptRight Reserved by <span className='font-semibold'>CREATIX</span></p>
+      <p>© CopyRight Reserved by <span className='font-semibold'>CREATIX</span></p>
       <div className="flex justify-between items-center w-60 text-3xl">
       { [
   { id: 1, icon: <FaInstagram className="hover:text-white duration-200 cursor-pointer" /> },
