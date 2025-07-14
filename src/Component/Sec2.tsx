@@ -1,7 +1,6 @@
 import React from "react";
 import Pic2 from '../assets/images/Pic2.png'
 import { FaArrowRight } from "react-icons/fa";
-import { hover } from "framer-motion";
 
 const Sec2: React.FC = () => {
   return (
