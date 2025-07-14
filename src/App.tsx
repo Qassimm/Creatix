@@ -13,7 +13,7 @@ function App() {
   
 
   return (
-    <div className='bg-black w-full h-screen font-outfit '>
+    <div className='bg-black w-full h-screen font-outfit  '>
     <Navbar/>
     <Hero/>
     <Reviews/>

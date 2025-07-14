@@ -52,7 +52,7 @@ const testimonials = [
   },
 ];
 
-// 🧠 Cloning first card to end for smooth infinite scroll
+//  Cloning first card to end for smooth infinite scroll
 const loopedTestimonials = [...testimonials, testimonials[0]];
 
 const ReviewCards: React.FC = () => {
@@ -104,7 +104,7 @@ const ReviewCards: React.FC = () => {
   
 
   return (
-    <div className="bg-black h-fit flex flex-col justify-center py-10 text-white">
+    <div className="bg-black h-fit flex flex-col justify-center p-2 py-10 sm:py-0 sm:p-14 text-white">
       <div
         className="flex overflow-x-hidden snap-x scroll-smooth w-full px-[calc((100vw-600px)/2)] gap-x-5"
         ref={scrollRef}
@@ -112,36 +112,36 @@ const ReviewCards: React.FC = () => {
         {loopedTestimonials.map((item, index) => (
           <div
             key={index}
-            className="p-10 bg-gray-600/30 backdrop-blur-xl rounded-3xl w-[600px] flex-shrink-0 mx-0 snap-center"
+            className="p-10 bg-gray-600/30 backdrop-blur-xl rounded-3xl w-[300px] md:w-[600px] 2xl:w-[650px]  flex-shrink-0 mx-0 snap-center"
           >
-            <div className="flex justify-between">
-              <div className="flex items-center gap-5">
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <div className="flex flex-col md:flex-row items-center gap-5">
                 <img
                   src={item.image}
                   alt=""
-                  className="w-20 h-20 object-cover rounded-full"
+                  className="w-20 2xl:w-25 h-20 2xl:h-25 object-cover rounded-full"
                 />
-                <div>
-                  <p className="text-xl">{item.name}</p>
-                  <p className="text-sm">{item.text}</p>
+                <div className='text-center md:text-start'>
+                  <p className="text-xl 2xl:text-3xl">{item.name}</p>
+                  <p className="text-sm 2xl:text-base">{item.text}</p>
                 </div>
               </div>
-              <FaQuoteRight className="text-2xl text-lime-400" />
+              <FaQuoteRight className="hidden sm:visible text-2xl text-lime-400" />
             </div>
-            <p className="pt-10">{item.review}</p>
+            <p className="pt-10 2xl:text-xl text-center md:text-start">{item.review}</p>
           </div>
         ))}
       </div>
 
       <div className="flex justify-center items-center gap-5 py-20">
         <button
-          className="bg-transparent border-2 border-white text-3xl p-3 rounded-full hover:bg-gray-700 active:bg-gray-800"
+          className="bg-transparent border-2 border-white text-3xl 2xl:text-4xl p-3 rounded-full hover:bg-gray-700 active:bg-gray-800"
           onClick={() =>scroll('left')}
         >
           <FaArrowLeft />
         </button>
         <button
-          className="bg-transparent border-2 border-white active:bg-gray-800 text-3xl p-3 rounded-full hover:bg-gray-700"
+          className="bg-transparent border-2 border-white active:bg-gray-800 text-3xl 2xl:text-4xl p-3 rounded-full hover:bg-gray-700"
          onClick={() =>scroll('right')}
         >
           <FaArrowRight />
