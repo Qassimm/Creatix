@@ -6,24 +6,88 @@ import Pic5 from '../assets/images/Pic5.jpg';
 import Pic6 from '../assets/images/Pic6.jpg';
 import Pic7 from '../assets/images/Pic7.png';
 import Pic8 from '../assets/images/Pic8.png';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Sec4:React.FC = () => {
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const background = () => {
+    gsap.fromTo('.bgg', {
+      y:-20,
+      opacity:0
+    } , {
+      y:0,
+      opacity:1,
+      scrollTrigger: {
+        trigger:'.bgg',
+        start:'top, 50%',
+        toggleActions: 'play none none none'
+      }
+    })
+  };
+
+  const headingSec = () => {
+    gsap.fromTo('.head', {
+      opacity:0,
+      x:-20
+    }, {
+      opacity:1,
+      x:0,
+      delay:1,
+      scrollTrigger: {
+        trigger:'.head',
+        start:'top 60%',
+        toggleActions:'play none none none',
+      },
+      ease:'power2.out',
+      stagger:0.4
+    })
+  };
+
+  const cardsContainer = () => {
+    gsap.fromTo('.card-container', {
+      opacity:0,
+      y:-15
+    }, {
+      opacity:1,
+      delay:1,
+      y:0,
+      duraion:0.5,
+       scrollTrigger: {
+        trigger:'.head',
+        start:'top 60%',
+        toggleActions:'play none none none',
+      },
+      ease:'power2.out',
+    })
+  }
+
+
+  useGSAP(() => {
+    background();
+    headingSec();
+    cardsContainer();
+  })
+
   return (
     <div className='bg-black   h-fit pb-15 lg:py-10 text-white'>
-      <div className='bg-gray-600/30  p-8 sm:p-10 py-10 2xl:h-auto  backdrop-blur-xl border-white border-t-2 border-b-2 rounded-[60px] sm:rounded-[100px] flex flex-col items-center justify-evenly'>
-        <div className='flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between items-center w-auto  sm:w-100 md:w-200 lg:w-full sm:px-30 2xl:mt-10 '>
-             <h1 className="text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl flex justify-center md:justify-start gap-2 items-center w-75 sm:w-100 md:w-auto ">
+      <div className='bgg bg-gray-600/30  p-8 sm:p-10 py-10 2xl:h-auto  backdrop-blur-xl border-white border-t-2 border-b-2 rounded-[60px] sm:rounded-[100px] flex flex-col items-center justify-evenly'>
+        <div className=' flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between items-center w-auto  sm:w-100 md:w-200 lg:w-full sm:px-30 2xl:mt-10 '>
+             <h1 className="head text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl flex justify-center md:justify-start gap-2 items-center w-75 sm:w-100 md:w-auto ">
             Meet  
             <div className=" bg-lime-400 px-6 py-2 skew-x-[-12deg] rounded-md  sm:w-fit">
               <span className="inline-block skew-x-[12deg] ">Our Team</span>
             </div>
           </h1>
-          <button className='flex items-center gap-4 p-2 2xl:p-3 bg-white text-black rounded-full  lg:text-base 2xl:text-2xl w-35 sm:w-auto'>
+          <button className='head flex items-center gap-4 p-2 2xl:p-3 bg-white text-black rounded-full  lg:text-base 2xl:text-2xl w-35 sm:w-auto'>
             View More <FaArrowRight className='bg-lime-400 text-white text-3xl p-1 rounded-full'/>
           </button>
         </div>
         
-        <div className="flex flex-wrap gap-5 justify-center mt-10 2xl:my-15">
+        <div className="card-container flex flex-wrap gap-5 justify-center mt-10 2xl:my-15">
       {[
   { name: "Bobby", image: Pic5 },
   { name: "Julia", image: Pic4 },

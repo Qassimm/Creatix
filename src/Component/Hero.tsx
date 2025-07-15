@@ -1,20 +1,124 @@
 import React from "react";
 import women from "../assets/images/women.png";
 import { FaStar } from "react-icons/fa";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Hero: React.FC = () => {
+
+  gsap.registerPlugin(ScrollTrigger);
+
+const animateHeading = () => {
+    gsap.to(".heading-letter", {
+     opacity: 1,
+     duration: 0.05,
+     stagger: 0.03,
+     ease: 'power1.out',
+     delay: 2
+   });
+  };
+
+  const animateResponsive = () => {
+    ScrollTrigger.matchMedia({
+      // ✅ Desktop
+      "(min-width: 1024px)": () => {
+        gsap.fromTo(
+          ".hero-sides",
+          { x: -50, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power1.out",
+            delay: 0.8,
+            scrollTrigger: {
+              trigger: ".hero-sides",
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+
+        gsap.fromTo(
+          ".hero-center",
+          { x: -50, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: ".hero-center",
+              start: "top 99%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      },
+
+      // ✅ Mobile
+      "(max-width: 1023px)": () => {
+        gsap.fromTo(
+          ".hero-sides",
+          { x: 0, y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: ".hero-sides",
+              start: "top 60%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+
+        gsap.fromTo(
+          ".hero-center",
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: ".hero-center",
+              start: "top 99%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      },
+    });
+  };
+
+
+  useGSAP(() => {
+    animateHeading();
+    animateResponsive();
+  }, []);
+
+
+
   return (
     <div className="bg-black">
       {/* container */}
-      <div className="bg-white lg:px-10 pt-30 lg:pt-40 2xl:pt-50 border rounded-b-[60px] h-auto">
+      <div className="bg-white  lg:px-8 pt-30 lg:pt-40 2xl:pt-50 border rounded-b-[60px] h-auto">
         {/* heading */}
-        <h1 className="text-center font-semibold text-4xl sm:text-5xl  md:text-6xl lg:text-8xl 2xl:text-9xl my-5">
-          Empowering Brands
-          <br /> Through Creative Solutions
-        </h1>
+        <h1
+  className="text-center font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-8xl 2xl:text-9xl lg:mt-20"
+>
+  {"Empowering Brands Through Creative Solutions".split("").map((char, i) => (
+    <span key={i} className="heading-letter inline-block opacity-0">
+      {char === " " ? "\u00A0" : char}
+    </span>
+  ))}
+</h1>
 
         {/* lower part */}
-        <div className="flex flex-col sm:flex-row gap-15 sm:gap-50 lg:flex-row justify-between items-center mt-15  lg:mt-50 px-5 ">
+        <div className="hero-sides  flex flex-col sm:flex-row gap-15 sm:gap-10 md:gap-40 lg:flex-row justify-between items-center mt-15  lg:mt-50 px-5 ">
           {/* left text , button */}
           <div className="text-center sm:text-start  ">
             <p className=" sm:w-90 lg:w-60 2xl:w-120 text-lg 2xl:text-2xl text-center sm:text-start my-5">
@@ -28,7 +132,7 @@ const Hero: React.FC = () => {
             </button>
           </div>
           {/* right text , rating */}
-          <div className="flex flex-col justify-end items-center sm:items-end text-end ">
+          <div className=" flex flex-col justify-end items-center sm:items-end text-end ">
             <div className="flex">
               {Array(5)
                 .fill(0)
@@ -43,7 +147,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
         {/* img ,circle and buton*/}
-        <div className="grid place-items-center relative mt-100 sm:mt-80 lg:mt-auto">
+        <div className="hero-center  grid place-items-center relative mt-100 sm:mt-80 lg:mt-auto">
           <img
             src={women}
             alt="women"

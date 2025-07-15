@@ -3,10 +3,14 @@ import women2  from "../assets/images/women2.png";
 import banner from "../assets/images/banner.png";
 import { FaInstagram , FaFacebook , FaLinkedinIn , FaTwitter } from 'react-icons/fa';
 
+
 const Footer:React.FC =() => {
-
-
   const headings = ["Home", "About us", "Broucher", "Reviews"];
+
+
+  
+
+
 
   const rows = [
     ["Explore More", "Get to Know Us", "Cover Page", "What Our Clients Say"],
@@ -21,7 +25,7 @@ const Footer:React.FC =() => {
     <div className='bg-black h-fit flex flex-col justify-center pt-10 text-white '>
       {/* contact */}
       <div className='h-15 md:h-24  lg:h-32  border-t-2 md:border-t-3 border-b-2 md:border-b-3 border-white w-full mb-20'>
-       <img src={banner} alt="banner" className='-rotate-2  h-14 sm:h-auto object-cover sm:w-screen py-2' />
+       <img src={banner} alt="bannerr" className='banner  -rotate-2  h-14 sm:h-auto object-cover sm:w-screen py-2' />
       </div>
       <div className='flex  justify-evenly items-center m-3  mb-25 lg:mb-auto'>
         <div className='w-140 2xl:w-[35vw] flex flex-col items-center lg:items-start gap-8'>

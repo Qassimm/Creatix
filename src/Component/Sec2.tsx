@@ -1,13 +1,75 @@
 import React from "react";
 import Pic2 from '../assets/images/Pic2.png'
 import { FaArrowRight } from "react-icons/fa";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const Sec2: React.FC = () => {
+
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const background = () => {
+    gsap.fromTo('.bg', {
+      y:-20,
+      opacity:0
+    } , {
+      y:0,
+      opacity:1,
+      scrollTrigger: {
+        trigger:'.section',
+        start:'top, 50%',
+        toggleActions: 'play none none none'
+      }
+    })
+  };
+
+  const blurContainer = () => {
+    gsap.fromTo('.bl', {
+      y:-20,
+      opacity:0
+    } , {
+      y:0,
+      opacity:0.2,
+      scrollTrigger: {
+        trigger:'.section',
+        start:'top, 40%',
+        toggleActions: 'play none none none'
+      }
+    })
+  }
+
+  const section = () => {
+    gsap.fromTo('.section', {
+
+      opacity:0,
+      x:-20,
+      delay:0.2
+    }, {
+      opacity:1,
+      x:0,
+      scrollTrigger: {
+        trigger:'.section',
+        start:'top, 30%',
+        toggleActions: 'play none none none'
+      },
+      stagger:0.5
+    })
+  }
+
+  useGSAP(() => {
+
+    background();
+    blurContainer();
+    section();
+  })
+
   return (
     <div className="bg-black   h-fit   text-white ">
-      <div className="bg-gray-600/30 h-fit lg:h-auto w-full backdrop-blur-xl border-white border-t-2 border-b-2 rounded-[60px] sm:rounded-[100px] flex flex-wrap lg:flex-row items-center justify-evenly z-20 py-10 gap-10 sm:gap-15 lg:gap-0">
+      <div className="bg bg-gray-600/30 h-fit lg:h-auto w-full backdrop-blur-xl border-white border-t-2 border-b-2 rounded-[60px] sm:rounded-[100px] flex flex-wrap lg:flex-row items-center justify-evenly z-20 py-10 gap-10 sm:gap-15 lg:gap-0">
       
-        <div className="flex flex-col items-center lg:items-start md:flex-none">
+        <div className="section flex flex-col items-center lg:items-start md:flex-none">
           <h1 className="text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl text-center md:text-start flex gap-2 items-center justify-center md:justify-start ">
             Our
             <div className="bg-lime-400 px-6 py-2 skew-x-[-12deg] rounded-md w-fit">
@@ -41,8 +103,8 @@ const Sec2: React.FC = () => {
       ))}
     </div>
         </div>
-        <img src={Pic2} alt="" className="hidden lg:block h-100 sm:h-150 2xl:h-160 rounded-4xl"/>
-       <div className="flex   flex-col md:flex-row lg:flex-col gap-8 my-10">
+        <img src={Pic2} alt="" className="section hidden lg:block h-100 sm:h-150 2xl:h-160 rounded-4xl"/>
+       <div className="section flex flex-col md:flex-row lg:flex-col gap-8 my-10">
       {[
         {
           text: 'Lorem ipsum, dolor sit amet consectetur.',
@@ -76,8 +138,8 @@ const Sec2: React.FC = () => {
     </div>
       </div>
       <div className="relative">
-        <div className="w-80 sm:w-110 h-10 sm:h-20 bg-lime-400 rounded-[50%] absolute left-0 bottom-[1480px] sm:bottom-[-20px] blur-2xl opacity-25 -rotate-5"/>
-        <div className="w-80 sm:w-110 h-10 sm:h-20 bg-lime-400 rounded-[50%] absolute sm:right-0 bottom-[-15px] sm:bottom-[790px] md:bottom-[730px] blur-2xl opacity-25 "/>
+        <div className="bl w-80 sm:w-110 h-10 sm:h-20 bg-lime-400 rounded-[50%] absolute left-0 bottom-[1480px] sm:bottom-[-20px] blur-2xl opacity-25 -rotate-5"/>
+        <div className="bl  w-80 sm:w-110 h-10 sm:h-20 bg-lime-400 rounded-[50%] absolute sm:right-5 bottom-[-15px] sm:bottom-[790px] md:bottom-[730px] blur-2xl opacity-25 "/>
       </div>
       {/* ---------- */}
     </div>
